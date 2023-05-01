@@ -1,6 +1,6 @@
-Build: 
+build: 
 	hugo
-Clean:
+clean:
 	rm -rf dist/
-Post:
-	hugo new posts/
+post: 
+	hugo new posts/${POST_NAME}.md
