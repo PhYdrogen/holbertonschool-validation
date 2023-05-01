@@ -15,3 +15,6 @@ Using makefile
 
 if test needed
 make clean
+
+if needed this command exist
+make help
