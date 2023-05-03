@@ -9,5 +9,5 @@ cd /app
 git clone https://github.com/PhYdrogen/holbertonschool-validation
 cd holbertonschool-validation/module1_task4/
 make build
-mv ./dist ../
+mv ./dist ../../
 exit
