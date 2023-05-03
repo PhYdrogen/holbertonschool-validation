@@ -1,4 +1,3 @@
-docker run --rm --tty --interactive --volume=$(pwd):/app --workdir=/app ubuntu:18.04 /bin/bash
 apt-get update && apt-get install -y hugo make git wget &> /dev/null
 wget https://github.com/gohugoio/hugo/releases/download/v0.111.3/hugo_0.111.3_Linux-64bit.tar.gz
 rm /usr/bin/hugo && mv ./hugo /usr/bin/
