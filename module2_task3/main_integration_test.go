@@ -38,10 +38,10 @@ func Test_server(t *testing.T) {
       body:         "ALIVE",
     },
 		{
-      name:         "Alexandre Guerin 2nd",
-      URI:  "/Alexandre Guerin 2nd",
-      responseCode: 404,
-      body:         "404 page not found\n",
+      name:         "Mr Jones",
+      URI:  "/hello?name=Mr Jones",
+      responseCode: 400,
+      body:         "400 Bad Request",
     },
   }
 
