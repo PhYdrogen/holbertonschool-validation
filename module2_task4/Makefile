@@ -1,4 +1,5 @@
-build: check ## compile the source code
+build: ## compile the source code
+	make check
 	make lint && go build
 	hugo
 
