@@ -1,5 +1,6 @@
 build: ## compile the source code
 	make lint && go build
+	hugo
 	
 run: ## Run the application in background
 	./awesome-api >./awesome-api.log 2>&1 &
@@ -25,5 +26,10 @@ unit-tests: ## run list of unit test
 
 integration-tests: ## run list of integration tests
 	go test -v -coverprofile=coverage-integrations.out
+
+check:
+
+validate:
+
 help: ## Display this help
 	@fgrep -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
