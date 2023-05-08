@@ -28,10 +28,10 @@ unit-tests: ## run list of unit test
 integration-tests: ## run list of integration tests
 	go test -v -coverprofile=coverage-integrations.out
 
-check:
+check: ## check the markdown to be more effective
 	markdownlint content/ && markdown-link-check content/posts/*.md
 
-validate:
+validate: ## useless but can improve code
 	-python3 /opt/W3C-Validator/w3c_validator.py ./dist/index.html
 
 help: ## Display this help
