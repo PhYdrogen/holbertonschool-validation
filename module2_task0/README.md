@@ -1,4 +1,4 @@
-## Target of the make file
+## Prerequisites
 
 make build -> compile the main in executable
 make run -> launch the server
