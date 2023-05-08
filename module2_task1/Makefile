@@ -1,13 +1,16 @@
 build: ## compile the source code
-	golangci-lint run && go build
+	make lint && go build
+	
 run: ## Run the application in background
 	./awesome-api >./awesome-api.log 2>&1 &
+
 stop: ## Stop the application with the 
 	pgrep awesome-api | xargs kill
 
-clean: stop ## Stop the application
+clean: ## Stop the application
+	-make stop
 	rm ./awesome-api && rm ./awesome-api.log
-	
+
 test: ## test the server
 	curl http://localhost:9999/ 
 	curl http://localhost:9999/health
