@@ -9,7 +9,7 @@ stop: ## Stop the application with the
 
 clean: ## Stop the application
 	-make stop
-	rm ./awesome-api && rm ./awesome-api.log
+	-rm ./awesome-api && rm ./awesome-api.log
 
 test: ## test the server
 	curl http://localhost:9999/ 
