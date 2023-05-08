@@ -1,5 +1,5 @@
-build: ## compile the source code
-	golint run && go build
+build: lint ## compile the source code
+	go build
 run: ## Run the application in background
 	./awesome-api >./awesome-api.log 2>&1 &
 stop: ## Stop the application with the 
@@ -10,6 +10,9 @@ clean: stop ## Stop the application
 test: ## test the server
 	curl http://localhost:9999/ 
 	curl http://localhost:9999/health
+
+lint: ## check if the code is correct
+	golangci-lint run
 
 help: ## Display this help
 	@fgrep -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
