@@ -3,7 +3,7 @@ build: ## compile the source code
 run: ## Run the application in background
 	./awesome-api >./awesome-api.log 2>&1 &
 stop: ## Stop the application with the 
-	$(pgrep awesome-api | xargs kill) 2&> /dev/null  
+	pgrep awesome-api | xargs kill
 
 clean: stop ## Stop the application
 	rm ./awesome-api && rm ./awesome-api.log 
