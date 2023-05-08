@@ -1,7 +1,5 @@
 build: ## compile the source code
-	make check
-	make lint && go build
-	hugo
+	make check && make lint && go build && hugo
 
 run: ## Run the application in background
 	./awesome-api >./awesome-api.log 2>&1 &
