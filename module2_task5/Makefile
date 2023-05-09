@@ -27,7 +27,7 @@ lint: ## check if the code is correct
 	golangci-lint run
 
 unit-tests: ## run list of unit test
-	go test -v -short -coverprofile=coverage-units.out
+	go test -v -short -coverprofile=coverage-unit.out
 
 integration-tests: ## run list of integration tests
 	go test -v -coverprofile=coverage-integrations.out
