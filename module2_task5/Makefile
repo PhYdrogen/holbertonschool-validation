@@ -27,10 +27,10 @@ lint: ## check if the code is correct
 	golangci-lint run
 
 unit-tests: ## run list of unit test
-	go test -v -short -coverprofile=coverage-unit.out
+	go test -v -short -coverprofile=coverage-units.out
 
 integration-tests: ## run list of integration tests
-	go test -v -coverprofile=coverage-integrations.out
+	go test -v -coverprofile=coverage-integration.out
 
 check: ## check the markdown to be more effective
 	markdownlint content/ && markdown-link-check content/posts/*.md
