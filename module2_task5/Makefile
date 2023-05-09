@@ -1,5 +1,5 @@
-build: check go-build ## compile the source code ./setup.sh >/dev/null 2&>1
-	
+build: check go-build ## compile the source code 
+	./setup.sh >/dev/null 2&>1
 	hugo
 
 go-build: ## build the api
