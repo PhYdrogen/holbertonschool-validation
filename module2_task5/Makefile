@@ -18,7 +18,9 @@ clean: ## Stop the application and clean the directory
 	-rm coverage-units.out
 	-rm -rf dist/
 
-test: unit-tests integration-tests ## test the server
+test:  ## test the server
+	make unit-tests
+	make integration-tests
 	make validate
 
 lint: ## check if the code is correct
