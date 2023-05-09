@@ -19,7 +19,7 @@ clean: ## Stop the application and clean the directory
 	-rm -rf dist/
 
 test: unit-tests integration-tests ## test the server
-	-make validate
+	make validate
 
 lint: ## check if the code is correct
 	golangci-lint run
