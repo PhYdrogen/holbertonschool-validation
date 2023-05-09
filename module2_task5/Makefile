@@ -20,8 +20,7 @@ clean: ## Stop the application and clean the directory
 
 test: unit-tests integration-tests ## test the server
 	-make validate
-	go tool cover -func=coverage-units.out 
-	go tool cover -func=coverage-integrations.out 
+	echo Salut la mif
 lint: ## check if the code is correct
 	golangci-lint run
 
