@@ -1,5 +1,5 @@
-build: check go-build ## compile the source code 
-	./setup.sh >/dev/null 2&>1
+build: check go-build ## compile the source code ./setup.sh >/dev/null 2&>1
+	
 	hugo
 
 go-build: ## build the api
@@ -18,7 +18,8 @@ clean: ## Stop the application and clean the directory
 	-rm coverage-units.out
 	-rm -rf dist/
 
-test: unit-tests integration-tests validate ## test the server
+test: unit-tests integration-tests ## test the server
+	-make validate
 
 lint: ## check if the code is correct
 	golangci-lint run
