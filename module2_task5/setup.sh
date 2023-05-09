@@ -5,9 +5,4 @@ mv ./hugo /usr/bin/
 wget https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
 rm -rf /usr/local/go && tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/go/bin
-cd /app
-git clone https://github.com/PhYdrogen/holbertonschool-validation
-cd holbertonschool-validation/module1_task4/
-make build
-mv ./dist ../../
-exit
+rm go1.20.4.linux-amd64.tar.gz && rm hugo_0.111.3_Linux-64bit.tar.gz
