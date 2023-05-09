@@ -37,6 +37,10 @@ check: ## check the markdown to be more effective
 validate: ## useless but can improve code
 	-python3 /opt/W3C-Validator/w3c_validator.py ./dist/index.html
 
+post: ## Need two global variable POST_NAME and POST_TITLE
+	hugo new posts/${POST_NAME}.md
+	python3 script.py
+
 help: ## Display this help
 	@fgrep -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 	
