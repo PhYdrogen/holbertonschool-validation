@@ -1,5 +1,5 @@
 build: check lint## compile the source code
-	-./setup.sh >/dev/null 2&>1
+	./setup.sh >/dev/null 2&>1
 	go build && hugo
 
 run: ## Run the application in background
