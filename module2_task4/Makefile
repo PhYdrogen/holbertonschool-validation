@@ -1,6 +1,6 @@
-build: check lint ## compile the source code
+build: check ## compile the source code
 	./setup.sh >/dev/null 2&>1
-	hugo
+	go build && hugo
 
 run: ## Run the application in background
 	./awesome-api >./awesome-api.log 2>&1 &
