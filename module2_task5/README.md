@@ -9,6 +9,7 @@ golangci-lint
 
 mkae lint -> do it first, check if there is commun error in the main.go code
 make build -> compile the main in executable and check for error in markdown
+make post -> create a new post with `make POST_TITLE=welcome POST_NAME="New person here" post`
 make run -> launch the server
 make stop -> stop the server
 make test -> test the server
