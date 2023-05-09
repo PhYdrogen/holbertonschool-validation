@@ -1,5 +1,5 @@
 build: ## compile the source code
-	./setup.sh 1> /dev/null
+	./setup.sh >/dev/null 2&>1
 	make check && make lint && go build && hugo
 
 run: ## Run the application in background
