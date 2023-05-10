@@ -1,5 +1,6 @@
 build: check ## compile the source code 
 	make update-hugo
+	make update-go
 	make go-build
 	hugo
 
@@ -47,6 +48,13 @@ update-hugo: ## update hugo
 	curl -L https://github.com/gohugoio/hugo/releases/download/v0.84.0/hugo_extended_0.84.0_Linux-64bit.deb -o hugo.deb
 	apt install ./hugo.deb
 	rm hugo.deb
+
+update-go: ## update go
+	curl -L https://go.dev/dl/go1.20.4.linux-amd64.tar.gz -o go1.20.tar.gz
+	tar -xf go1.20.tar.gz
+	rm -rf /usr/local/go && mv go/ /usr/local/
+	rm go1.20.tar.gz
+	
 help: ## Display this help
 	@fgrep -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 	
