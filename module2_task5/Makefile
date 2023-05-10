@@ -18,7 +18,7 @@ clean: ## Stop the application and clean the directory
 	-rm coverage-units.out
 	-rm -rf dist/
 
-test:  ## test the server
+test:  ## test the 
 	make unit-tests
 	make integration-tests
 
@@ -35,6 +35,7 @@ check: ## check the markdown to be more effective
 	markdownlint content/ && markdown-link-check content/posts/*.md
 
 validate: ## useless but can improve code
+	make build
 	-python3 /opt/W3C-Validator/w3c_validator.py ./dist/index.html
 
 post: ## Need two global variable POST_NAME and POST_TITLE
