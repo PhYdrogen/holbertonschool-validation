@@ -17,9 +17,10 @@ clean: ## Stop the application and clean the directory
 	-rm coverage-units.out
 	-rm -rf dist/
 
-test:  ## test the 
+test: ## test hitting the endpoint
 	make unit-tests
 	make integration-tests
+	make validate
 
 lint: ## check if the code is correct
 	golangci-lint run
