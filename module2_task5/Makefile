@@ -1,5 +1,5 @@
 build: check ## compile the source code 
-	./setup.sh >/dev/null 2&>1
+	./setup.sh
 	go-build
 	hugo
 
