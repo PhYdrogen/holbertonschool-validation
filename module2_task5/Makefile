@@ -1,7 +1,4 @@
-build: check ## compile the source code 
-	make update-hugo
-	make update-go
-	make go-build
+build: check go-build ## compile the source code 
 	hugo
 
 go-build: ## build the api
@@ -37,8 +34,7 @@ check: ## check the markdown to be more effective
 	markdownlint content/ && markdown-link-check content/posts/*.md
 
 validate: ## useless but can improve code
-	make build
-	-python3 /opt/W3C-Validator/w3c_validator.py ./dist/index.html
+	python3 /opt/W3C-Validator/w3c_validator.py dist/index.html || true
 
 post: ## Need two global variable POST_NAME and POST_TITLE
 	hugo new posts/${POST_NAME}.md
