@@ -18,7 +18,10 @@ clean: ## Stop the application and clean the directory
 	-rm -rf dist/
 
 test: ## test hitting the endpoint
+	make unit-tests
+	make integration-tests
 	make validate
+	node -v
 
 lint: ## check if the code is correct
 	golangci-lint run
