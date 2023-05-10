@@ -1,5 +1,5 @@
 build: check ## compile the source code 
-	go-build
+	make go-build
 	hugo
 
 go-build: ## build the api
