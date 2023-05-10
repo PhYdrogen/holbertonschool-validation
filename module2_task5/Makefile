@@ -1,5 +1,4 @@
 build: check ## compile the source code 
-	./setup.sh
 	go-build
 	hugo
 
