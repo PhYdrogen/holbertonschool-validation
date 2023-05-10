@@ -1,4 +1,5 @@
 build: check ## compile the source code 
+	make update-hugo
 	make go-build
 	hugo
 
@@ -42,6 +43,10 @@ post: ## Need two global variable POST_NAME and POST_TITLE
 	hugo new posts/${POST_NAME}.md
 	python3 script.py
 
+update-hugo: ## update hugo
+	curl -L https://github.com/gohugoio/hugo/releases/download/v0.84.0/hugo_extended_0.84.0_Linux-64bit.deb -o hugo.deb
+	apt install ./hugo.deb
+	rm hugo.deb
 help: ## Display this help
 	@fgrep -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 	
