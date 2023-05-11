@@ -23,6 +23,9 @@ test: ## test hitting the endpoint
 	make validate
 	node -v
 
+lint: ## check if the code is correct
+	golangci-lint run
+
 unit-tests: ## run list of unit test
 	go test -v -short -coverprofile=coverage-units.out
 
