@@ -1,8 +1,7 @@
-build: check go-build ## compile the source code 
-	hugo
-
-go-build: ## build the api
+build: ## compile the source code 
 	go build
+	hugo > /dev/null 2>&1
+	make check 
 
 run: ## Run the application in background
 	./awesome-api >./awesome-api.log 2>&1 &
