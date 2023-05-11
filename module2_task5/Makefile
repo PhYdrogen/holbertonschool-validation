@@ -1,56 +1,30 @@
-build: ## compile the source code 
-	go build
-	hugo > /dev/null 2>&1
-	make check 
-
-run: ## Run the application in background
-	./awesome-api >./awesome-api.log 2>&1 &
-
-stop: ## Stop the application with the 
-	pgrep awesome-api | xargs kill
-
-clean: ## Stop the application and clean the directory
-	-make stop
-	-rm ./awesome-api && rm ./awesome-api.log
-	-rm coverage-integrations.out
-	-rm coverage-units.out
-	-rm -rf dist/
-
+build:   ## Generate the website from the markdown and configuration files in the directory dist/
+    go build
+    hugo > /dev/null 2>&1
+    make check
+clean:    ## Cleanup the content of the directoy dist/
+    rm -rf ./dist/ awesome-api awesome-api.log coverage-units.out coverage-integrations.out
+    make stop
+post:     ## Create a new blog post whose filename and title come from the environment variables POST_TITLE and POST_NAME
+    hugo new posts/$(POST_NAME).md
+    sed -i '/title:/c\title: "$(POST_TITLE)"' content/posts/$(POST_NAME).md
+check: ## Checking markdown files
+    markdownlint content/ && markdown-link-check content/posts/*.md
+validate: ## validates using Holberton tool
+    python3 opt/W3C-Validator/w3c_validator.py dist/index.html || true
+run: ## runs the api and logs it
+    ./awesome-api > ./awesome-api.log 2>&1 &
+stop: ## kills the process with PID number
+    pkill awesome-api
+lint: ## check for potential errors
+    golangci-lint run
 test: ## test hitting the endpoint
-	make unit-tests
-	make integration-tests
-	make validate
-
-lint: ## check if the code is correct
-	golangci-lint run
-
-unit-tests: ## run list of unit test
-	go test -v -short -coverprofile=coverage-units.out
-
-integration-tests: ## run list of integration tests
-	go test -v -coverprofile=coverage-integrations.out
-
-check: ## check the markdown to be more effective
-	markdownlint content/ && markdown-link-check content/posts/*.md
-
-validate: ## useless but can improve code
-	python3 /opt/W3C-Validator/w3c_validator.py dist/index.html || true
-
-post: ## Need two global variable POST_NAME and POST_TITLE
-	hugo new posts/${POST_NAME}.md
-	python3 script.py
-
-update-hugo: ## update hugo
-	curl -L https://github.com/gohugoio/hugo/releases/download/v0.84.0/hugo_extended_0.84.0_Linux-64bit.deb -o hugo.deb
-	apt install ./hugo.deb
-	rm hugo.deb
-
-update-go: ## update go
-	curl -L https://go.dev/dl/go1.20.4.linux-amd64.tar.gz -o go1.20.tar.gz
-	tar -xf go1.20.tar.gz
-	rm -rf /usr/local/go && mv go/ /usr/local/
-	rm go1.20.tar.gz
-	
-help: ## Display this help
-	@fgrep -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
-	
+    make unit-tests
+    make integration-tests
+    make validate
+unit-tests: ## run unit-tests
+    go test -v -short -coverprofile=coverage-units.out
+integration-tests: ## run intregrated tests
+    go test -v  -coverprofile=coverage-integrations.out
+help: ## Show this help usage
+    @fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
