@@ -23,9 +23,12 @@ jobs:
 
       - name: Run api
         run: cd module3_task1/ && make run
-    
+
       - name: Create a test post
-        run: cd module3_task1/ && POST_TITLE=welcometest POST_NAME=testing make post
+        run: |
+          cd module3_task1/ && POST_TITLE=welcometest
+          POST_NAME=testing
+          make post
 
       - name: Testing
         run: cd module3_task1/ && make test
