@@ -22,13 +22,13 @@ jobs:
         run: cd module3_task1/ && make build
 
       - name: Run api
-        run: make run
+        run: cd module3_task1/ && make run
     
       - name: Create a test post
-        run: POST_TITLE=welcometest POST_NAME=testing make post
+        run: cd module3_task1/ && POST_TITLE=welcometest POST_NAME=testing make post
 
       - name: Stop the server
-        run: make stop
+        run: cd module3_task1/ && make stop
 
       - name: Cleaning
-        run: make clean
+        run: cd module3_task1/ && make clean
