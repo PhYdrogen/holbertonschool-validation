@@ -27,8 +27,8 @@ jobs:
       - name: Create a test post
         run: cd module3_task1/ && POST_TITLE=welcometest POST_NAME=testing make post
 
-      - name: Stop the server
-        run: cd module3_task1/ && make stop
+      - name: Testing
+        run: cd module3_task1/ && make test
 
       - name: Cleaning
         run: cd module3_task1/ && make clean
