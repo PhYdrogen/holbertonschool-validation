@@ -17,7 +17,7 @@ run: ## runs the api and logs it
 stop: ## kills the process with PID number
 	pkill awesome-api
 lint: ## check for potential errors
-	markdownlint DEPLOY.md README.md || true
+	markdownlint -f DEPLOY.md README.md || true
 test: ## test hitting the endpoint
 	make unit-tests
 	make integration-tests

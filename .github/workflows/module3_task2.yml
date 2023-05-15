@@ -38,6 +38,9 @@ jobs:
       - name: Cleaning
         run: cd module3_task2/ && make clean
 
+      - name: Linter
+        run: cd module3_task2/ && make lint
+
       - name: Packaging
         run: cd module3_task2/ && make package
 
