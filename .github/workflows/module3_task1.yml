@@ -26,9 +26,8 @@ jobs:
 
       - name: Create a test post
         run: |
-          cd module3_task1/ && POST_TITLE=welcometest
-          POST_NAME=testing
-          make post
+          cd module3_task1/ &&
+          POST_TITLE=welcometest POST_NAME=testing make post
 
       - name: Testing
         run: cd module3_task1/ && make test
