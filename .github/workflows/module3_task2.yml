@@ -38,21 +38,13 @@ jobs:
       - name: Cleaning
         run: cd module3_task2/ && make clean
 
-  package:
-    if: ${{ jobs.build.result == 'success'}}
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Clone the repo
-        uses: actions/checkout@v3
+      if: ${{ jobs.build.result == 'success'}}
+      - name: Packaging
+        run: cd module3_task2/ && make package
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
         with:
-          repository: ''
-
-    - name: Packaging
-      run: cd module3_task2/ && make package
-
-    - name: Archive production artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: Saving the zip file
-        path: |
-          module3_task2/awesome-website.zip
+          name: Saving the zip file
+          path: |
+            module3_task2/awesome-website.zip
