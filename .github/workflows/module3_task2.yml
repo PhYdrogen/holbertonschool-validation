@@ -1,0 +1,50 @@
+---
+name: module3_task2
+
+"on":
+  push:
+    branches:
+    - 'master'
+
+  schedule:
+    - cron: "30 10 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Clone the repo
+        uses: actions/checkout@v3
+        with:
+          repository: ''
+
+      - name: Running the setup
+        run: ./module3_task2/setup.sh
+
+      - name: Building
+        run: cd module3_task2/ && make build
+
+      - name: Run api
+        run: cd module3_task2/ && make run
+
+      - name: Create a test post
+        run: |
+          cd module3_task2/ &&
+          POST_TITLE=welcometest POST_NAME=testing make post
+
+      - name: Testing
+        run: cd module3_task2/ && make test
+
+      - name: Cleaning
+        run: cd module3_task2/ && make clean
+  prod:
+    if: ${{ jobs.build.result == 'success'}}
+    - name: Packaging
+      run: cd module3_task2/ && make package
+
+    - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Saving the zip file
+          path: |
+            module3_task2/awesome-website.zip
