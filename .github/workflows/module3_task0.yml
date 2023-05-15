@@ -1,6 +1,6 @@
 name: m3task0
 
-"on":
+on:
   push:
     branches: main
   schedule:
@@ -8,11 +8,8 @@ name: m3task0
 
 jobs:
   build:
-
     runs-on: ubuntu-22.04
-
     steps:
-      - name: Clone repo
       - uses: PhYdrogen/holbertonschool-validation@master
       - run: cd module3_task0/
       - run: make help
