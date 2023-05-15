@@ -16,10 +16,10 @@ jobs:
           repository: ''
 
       - name: Running the setup
-        run: ./module3_task0/setup.sh
+        run: ./module3_task1/setup.sh
 
       - name: Building
-        run: cd module3_task0/ && make build
+        run: cd module3_task1/ && make build
 
       - name: Run api
         run: make run
