@@ -15,26 +15,20 @@ jobs:
         with:
           repository: ''
 
-    steps:
       - name: Running the setup
         run: ./module3_task0/setup.sh
 
-    steps:
       - name: Building
         run: cd module3_task0/ && make build
 
-    steps:
       - name: Run api
         run: make run
     
-    steps:
       - name: Create a test post
         run: POST_TITLE=welcometest POST_NAME=testing make post
 
-    steps:
       - name: Stop the server
         run: make stop
 
-    steps:
       - name: Cleaning
         run: make clean
