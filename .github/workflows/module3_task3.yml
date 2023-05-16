@@ -39,7 +39,7 @@ jobs:
         run: cd module3_task2/ && make clean
 
       - name: Linter
-        run: cd module3_task2/ && make lint
+        run: cd module3_task2/ && make lint && pwd && ls
 
       - name: Packaging
         run: cd module3_task2/ && make package && pwd && ls
@@ -52,7 +52,7 @@ jobs:
             module3_task3/awesome-website.zip
 
       - name: Generate Changelog
-        run: cat module3_task3/DEPLOY.md > module3_task3/CHANGELOG.txt
+        run: pwd && cat module3_task3/DEPLOY.md > module3_task3/CHANGELOG.txt
 
       - name: Release
         uses: softprops/action-gh-release@v1
