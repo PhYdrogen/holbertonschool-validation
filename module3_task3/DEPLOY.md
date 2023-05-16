@@ -16,3 +16,5 @@
 ## How to “quickly” verify that the application is running (healthcheck)?
 
 - Do `curl localhost:9999/health`
+
+## Version
