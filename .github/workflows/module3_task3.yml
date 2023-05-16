@@ -5,8 +5,8 @@ name: module3_task3
   push:
     branches:
       - 'master'
-  tags:
-    - 'v*.*.*'
+    tags:
+      - 'v*.*.*'
 
 jobs:
   build:
