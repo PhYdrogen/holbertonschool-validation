@@ -48,8 +48,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Saving the zip file
-          path: |
-            awesome-website.zip
+          path: module3_task3/awesome-website.zip
 
       - name: Release
         uses: softprops/action-gh-release@v1
