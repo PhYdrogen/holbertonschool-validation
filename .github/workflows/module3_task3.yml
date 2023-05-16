@@ -42,7 +42,7 @@ jobs:
         run: cd module3_task2/ && make lint
 
       - name: Packaging
-        run: cd module3_task2/ && make package
+        run: cd module3_task2/ && make package && pwd && ls
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
