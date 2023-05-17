@@ -7,6 +7,9 @@ name: module3_task3
       - 'master'
     tags:
       - 'v*.*.*'
+      
+permissions:
+  contents: write
 
 jobs:
   build:
