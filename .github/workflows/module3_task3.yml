@@ -7,7 +7,7 @@ name: module3_task3
       - 'master'
     tags:
       - 'v*.*.*'
-      
+
 permissions:
   contents: write
 
@@ -52,9 +52,12 @@ jobs:
           name: awesome-website.zip
           path: module3_task3/awesome-website.zip
 
+      - name: Modify DEPLOY
+        run: echo ${{github.ref_name}} >> DEPLOY.md
+
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: module3_task3/awesome-website.zip
-          body: module3_task3/DEPLOY.md
+          body_path: module3_task3/DEPLOY.md
