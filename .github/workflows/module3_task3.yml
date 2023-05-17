@@ -53,7 +53,7 @@ jobs:
           path: module3_task3/awesome-website.zip
 
       - name: Modify DEPLOY
-        run: echo ${{github.ref_name}} >> DEPLOY.md
+        run: echo ${{github.ref_name}} >> module3_task3/DEPLOY.md
 
       - name: Release
         uses: softprops/action-gh-release@v1
