@@ -1,42 +1,18 @@
-name-template: 'v$RESOLVED_VERSION'
-tag-template: 'v$RESOLVED_VERSION'
-template: |
-  # What's Changed
+name: Release Drafter
 
-  $CHANGES
+"on":
+  pull_request:
 
-  **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
+permissions:
+  contents: read
 
-categories:
-  - title: 'Breaking'
-    label: 'type: breaking'
-  - title: 'New'
-    label: 'type: feature'
-  - title: 'Bug Fixes'
-    label: 'type: bug'
-  - title: 'Maintenance'
-    label: 'type: maintenance'
-  - title: 'Documentation'
-    label: 'type: docs'
-  - title: 'Other changes'
-  - title: 'Dependency Updates'
-    label: 'type: dependencies'
-    collapse-after: 5
-
-version-resolver:
-  major:
-    labels:
-      - 'type: breaking'
-  minor:
-    labels:
-      - 'type: feature'
-  patch:
-    labels:
-      - 'type: bug'
-      - 'type: maintenance'
-      - 'type: docs'
-      - 'type: dependencies'
-      - 'type: security'
-
-exclude-labels:
-  - 'skip-changelog'
+jobs:
+  update_release_draft:
+    permissions:
+      contents: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: release-drafter/release-drafter@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
