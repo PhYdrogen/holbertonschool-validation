@@ -24,4 +24,4 @@ make help -> show an help
 
 ## Workflow
 
-On push and at 10:30 UTC github will check for the code
+On push, pull request and at 10:30 UTC github will check for the code
