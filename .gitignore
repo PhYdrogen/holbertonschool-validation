@@ -1,11 +1,9 @@
-module1_task0/dist/
-module1_task1/dist/
-module1_task2/dist/
-module1_task3/dist/
-module1_task4/dist/
 .vscode/settings.json
+*/dist/
 */awesome-api.log
 */awesome-api
 */coverage-units.out
 */coverage-integrations.out
 /module2_task4/hugo 
+# Local Netlify folder
+.netlify
