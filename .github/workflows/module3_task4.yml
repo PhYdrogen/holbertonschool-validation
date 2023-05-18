@@ -26,42 +26,44 @@ jobs:
           repository: ''
 
       - name: Running the setup
-        run: ./module3_task3/setup.sh
+        run: ./module3_task4/setup.sh
 
       - name: Building
-        run: cd module3_task3/ && make build
+        run: cd module3_task4/ && make build
 
       - name: Run api
-        run: cd module3_task3/ && make run
+        run: cd module3_task4/ && make run
 
       - name: Create a test post
         run: |
-          cd module3_task3/ &&
+          cd module3_task4/ &&
           POST_TITLE=welcometest POST_NAME=testing make post
 
       - name: Testing
-        run: cd module3_task3/ && make test
+        run: cd module3_task4/ && make test
 
       - name: Cleaning
-        run: cd module3_task3/ && make clean
+        run: cd module3_task4/ && make clean
 
       - name: Linter
-        run: cd module3_task3/ && make lint
+        run: cd module3_task4/ && make lint
 
       - name: Packaging
-        run: cd module3_task3/ && make package
+        run: cd module3_task4/ && make package
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
         with:
           name: awesome-website.zip
-          path: module3_task3/awesome-website.zip
+          path: module3_task4/awesome-website.zip
 
       - name: Modify DEPLOY
-        run: echo ${{github.ref_name}} >> module3_task3/DEPLOY.md
+        run: echo ${{github.ref_name}} >> module3_task4/DEPLOY.md
 
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: module3_task3/awesome-website.zip
+          files: |
+            module3_task4/awesome-website.zip
+            module3_task4/DEPLOY.md
