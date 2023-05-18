@@ -1,5 +1,7 @@
 ## Prerequisites
 
+download these :
+
 go 1.15._
 npm 7+
 node 14._
