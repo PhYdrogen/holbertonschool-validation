@@ -11,7 +11,7 @@
 
 ## How to customize where the application logs are written?
 
-- None
+- None / No
 
 ## How to “quickly” verify that the application is running (healthcheck)?
 
