@@ -5,7 +5,7 @@ sudo mv ./hugo /usr/bin/
 sudo rm hugo_0.111.3_Linux-64bit.tar.gz
 
 if ! [ -x "$(command -v npm)" ]; then
-  sudo apt install nodejs npm
+  sudo apt install -y nodejs npm
 fi
 
 sudo npm install -g markdownlint-cli
