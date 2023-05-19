@@ -1,5 +1,5 @@
 build:   ## Generate the website from the markdown and configuration files in the directory dist/
-	docker run --rm --volume ${GITHUB_WORKSPACE}/module4_task0/:/go golang:1.15.8-buster ls && go build
+	docker run --volume ${GITHUB_WORKSPACE}/module4_task0/:/go golang:1.15.8-buster ls && go build
 	hugo > /dev/null 2>&1
 	make check
 clean:    ## Cleanup the content of the directoy dist/
@@ -23,7 +23,7 @@ test: ## test hitting the endpoint
 	make integration-tests
 	make validate
 unit-tests: ## run unit-tests
-	docker run --rm --volume ${GITHUB_WORKSPACE}/module4_task0/:/go golang:1.15.8-buster go test -v -short -coverprofile=coverage-units.out
+	docker volume ls || go test -v -short -coverprofile=coverage-units.out
 integration-tests: ## run intregrated tests
 	docker run --rm --volume ${GITHUB_WORKSPACE}/module4_task0/:/go golang:1.15.8-buster go test -v  -coverprofile=coverage-integrations.out
 package: build ## compile everything and zipit
