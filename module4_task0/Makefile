@@ -1,5 +1,5 @@
 build:   ## Generate the website from the markdown and configuration files in the directory dist/
-	docker run --rm --volume $(pwd):/home/run golang:1.15.8-buster cd /home/run && ls && go build
+	docker run --rm --volume $(pwd):/home/run golang:1.15.8-buster pwd
 	hugo > /dev/null 2>&1
 	make check
 clean:    ## Cleanup the content of the directoy dist/
