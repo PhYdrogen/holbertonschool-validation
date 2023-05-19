@@ -25,8 +25,8 @@ jobs:
         with:
           repository: ''
 
-     # - name: Running the setup
-     #  run: ./module4_task0/setup.sh
+      - name: Running the setup
+       run: ./module4_task0/setup.sh
 
       - name: Building
         run: cd module4_task0/ && make build

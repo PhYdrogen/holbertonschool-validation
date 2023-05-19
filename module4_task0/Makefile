@@ -23,9 +23,9 @@ test: ## test hitting the endpoint
 	make integration-tests
 	make validate
 unit-tests: ## run unit-tests
-	docker run golang:1.15.8-buster go test -v -short -coverprofile=coverage-units.out
+	docker run --rm --volume ${GITHUB_WORKSPACE}/module4_task0/:/go golang:1.15.8-buster go test -v -short -coverprofile=coverage-units.out
 integration-tests: ## run intregrated tests
-	docker run golang:1.15.8-buster go test -v  -coverprofile=coverage-integrations.out
+	docker run --rm --volume ${GITHUB_WORKSPACE}/module4_task0/:/go golang:1.15.8-buster go test -v  -coverprofile=coverage-integrations.out
 package: build ## compile everything and zipit
 	zip -r awesome-website.zip dist/ awesome-api 
 help: ## Display this help
