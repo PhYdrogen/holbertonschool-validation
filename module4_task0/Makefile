@@ -1,5 +1,5 @@
 build:   ## Generate the website from the markdown and configuration files in the directory dist/
-	go build
+	docker run golang:1.15.8-buster go build
 	hugo > /dev/null 2>&1
 	make check
 clean:    ## Cleanup the content of the directoy dist/
@@ -23,9 +23,9 @@ test: ## test hitting the endpoint
 	make integration-tests
 	make validate
 unit-tests: ## run unit-tests
-	go test -v -short -coverprofile=coverage-units.out
+	docker run golang:1.15.8-buster go test -v -short -coverprofile=coverage-units.out
 integration-tests: ## run intregrated tests
-	go test -v  -coverprofile=coverage-integrations.out
+	docker run golang:1.15.8-buster go test -v  -coverprofile=coverage-integrations.out
 package: build ## compile everything and zipit
 	zip -r awesome-website.zip dist/ awesome-api 
 help: ## Display this help
