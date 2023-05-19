@@ -25,3 +25,4 @@ make help -> show an help
 ## Workflow
 
 On push, pull request and at 10:30 UTC github will check for the code
+Now, the make file create a docker containner to make run go commands
