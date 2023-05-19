@@ -40,7 +40,7 @@ jobs:
           POST_TITLE=welcometest POST_NAME=testing make post
 
       - name: Testing
-        run: cd module4_task0/ && make unit-tests
+        run: cd module4_task0/ && make test
 
       - name: Cleaning
         run: cd module4_task0/ && make clean
