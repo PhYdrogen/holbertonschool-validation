@@ -28,7 +28,7 @@ integration-tests: build-docker ## run intregrated tests
 	docker run --volume ${GITHUB_WORKSPACE}/module4_task1/:/go awesome:build ls && go test -v  -coverprofile=coverage-integrations.out
 package: build ## compile everything and zipit
 	zip -r awesome-website.zip dist/ awesome-api
-build-docker:
+build-docker: ## build an image docker for each rule
 	docker build -t awesome:build .build
 help: ## Display this help
 	@fgrep -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
