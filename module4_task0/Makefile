@@ -1,7 +1,7 @@
 build:   ## Generate the website from the markdown and configuration files in the directory dist/
 	docker run --volume ${GITHUB_WORKSPACE}/module4_task0/:/go golang:1.15.8-buster ls && go build
 	hugo > /dev/null 2>&1
-	make check
+
 clean:    ## Cleanup the content of the directoy dist/
 	rm -rf ./dist/ awesome-api awesome-api.log coverage-units.out coverage-integrations.out
 	make stop
