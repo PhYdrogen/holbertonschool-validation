@@ -1,4 +1,4 @@
-FROM golang:1.15.8-buster
+FROM golang:latest
 
 RUN sudo apt-get update && sudo apt-get install -y hugo make git wget zip nodejs npm &&\
   wget https://github.com/gohugoio/hugo/releases/download/v0.111.3/hugo_0.111.3_Linux-64bit.tar.gz &&\
