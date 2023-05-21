@@ -10,6 +10,6 @@ RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | 
   npm install -g npm &&\
   npm install -g markdownlint-cli &&\
   npm install -g markdown-link-check &&\
-  curl -L https://github.com/gohugoio/hugo/releases/download/v0.84.0/hugo_extended_0.111.3_Linux-64bit.deb -o hugo.deb &&\
+  curl -L https://github.com/gohugoio/hugo/releases/download/v0.111.3/hugo_0.111.3_linux-amd64.deb -o hugo.deb &&\
   apt install ./hugo.deb &&\
   rm hugo.deb
