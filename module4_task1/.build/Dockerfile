@@ -9,9 +9,6 @@ RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | 
   nvm install --lts &&\
   npm install -g npm &&\
   npm install -g markdownlint-cli &&\
-  npm install -g markdown-link-check &&\
-  curl -L https://github.com/gohugoio/hugo/releases/download/v0.111.3/hugo_0.111.3_linux-amd64.deb -o hugo.deb &&\
-  apt install ./hugo.deb &&\
-  rm hugo.deb
+  npm install -g markdown-link-check
 
 ENV PATH="${PATH}:/usr/local/go/bin"
