@@ -28,6 +28,6 @@ integration-tests: build-docker ## run intregrated tests
 package: build ## compile everything and zipit
 	zip -r awesome-website.zip dist/ awesome-api
 build-docker: ## build an image docker for each rule
-	docker build -t awesome:build .build
+	docker build -t awesome:build .build > log.txt
 help: ## Display this help
 	@fgrep -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
