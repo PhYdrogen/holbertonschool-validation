@@ -1,5 +1,5 @@
 build: build-docker ## Generate the website from the markdown and configuration files in the directory dist/
-	docker run --volume ${GITHUB_WORKSPACE}/module4_task1/:/go awesome:build ls && go build && hugo > /dev/null 2>&1
+	docker run --volume ${GITHUB_WORKSPACE}/module4_task1/:/go awesome:build ls && go build && hugo && ls 
 
 clean:    ## Cleanup the content of the directoy dist/
 	rm -rf ./dist/ awesome-api awesome-api.log coverage-units.out coverage-integrations.out
