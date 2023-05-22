@@ -1,0 +1,5 @@
+commandTests:
+  - name: "Build"
+    command: "go"
+    args: ["build"]
+    expected Output: ["hello*"]

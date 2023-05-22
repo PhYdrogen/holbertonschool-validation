@@ -1,0 +1,14 @@
+services:
+  container-structure-test:
+    image: ubuntu:18.04
+    command: |
+      sh -c "chmod +x container-structure-test-linux-amd64 && sudo mv container-structure-test-linux-amd64 /usr/local/bin/container-structure-test"
+      sh -c "container-structure-test test -i awesome:build --config cst.yml"
+    working_dir: /root
+    volumes:
+      - ./:/root
+  hadolint:
+    image: hadolint/hadolint:latest
+    command: hadolint Dockerfile
+    working_dir: /root
+    volumes: -./:/root
