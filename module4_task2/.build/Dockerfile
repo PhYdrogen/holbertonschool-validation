@@ -1,4 +1,4 @@
-FROM golang:1.15.8-alpine
+FROM golang:1.15.8-buster
 
 SHELL ["/bin/bash", "--login", "-c"]
 
@@ -6,9 +6,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends hugo wget zip n
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-ENV NVM_DIR /root/.nvm
 RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &&\
-  . $NVM_DIR/nvm.sh &&\
+  . /root/.nvm/nvm.sh &&\
   nvm install --lts &&\
   npm install -g npm@9.6.7 &&\
   npm install -g markdownlint-cli@0.34.0 &&\

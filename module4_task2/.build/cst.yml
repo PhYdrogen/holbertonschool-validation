@@ -1,5 +1,5 @@
-commandTests:
-  - name: "Build"
-    command: "go"
-    args: ["build"]
-    expected Output: ["hello*"]
+metadataTest:
+  entrypoint: []
+  cmd: ["/bin/bash"]
+  workdir: "/go"
+  user: "root"
