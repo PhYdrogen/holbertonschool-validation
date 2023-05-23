@@ -5,9 +5,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apt-get update && apt-get install -y --no-install-recommends hugo=0.54.0 wget=1.20.3 zip=3.0 npm=9.6.4\
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*\
-  && npm --version
-
-RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &&\
+  && wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &&\
   . /root/.nvm/nvm.sh &&\
   nvm install --lts &&\
   npm install -g npm@9.6.7 &&\
