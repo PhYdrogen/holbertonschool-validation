@@ -1,8 +1,8 @@
 FROM golang:1.15.8-buster
 
-SHELL ["/bin/bash", "--login", "-c"]
-
-RUN apt-get update && apt-get install -y --no-install-recommends hugo=0.54.0 wget=1.20.3 zip=3.0 npm\
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+#shellcheck disable=SC1091
+RUN apt-get update && apt-get install -y --no-install-recommends hugo=0.54.0 wget=1.20.3 zip=3.0 npm=9.6.4\
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*\
   && npm --version
