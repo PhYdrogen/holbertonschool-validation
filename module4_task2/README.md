@@ -22,6 +22,7 @@ make unit-tests -> show all the unit test present
 make integration-tests -> do all the integration tests present
 make help -> show an help
 make docker-tests -> launch test for the docker
+make build-docker -> build the docker to make the build the same env for everyone
 
 ## Workflow
 
