@@ -9,7 +9,7 @@ golangci-lint
 
 ## Lifecycle
 
-mkae lint -> do it first, check if there is commun error in the main.go code
+mkae lint -> do it first, check if there is commun error in the main.go code, and lint the docker file as well
 make build -> compile the main in executable and check for error in markdown
 make post -> create a new post with `make POST_TITLE=welcome POST_NAME="New person here" post`
 make run -> launch the server
@@ -21,6 +21,7 @@ make validate -> verify the index.html
 make unit-tests -> show all the unit test present
 make integration-tests -> do all the integration tests present
 make help -> show an help
+make docker-tests -> launch test for the docker
 
 ## Workflow
 
