@@ -1,5 +1,5 @@
 build: build-docker ## Generate the website from the markdown and configuration files in the directory dist/
-	docker run --volume ${GITHUB_WORKSPACE}/module4_task1/:/go awesome:build ls && go build
+	docker run --volume ${GITHUB_WORKSPACE}/module4_task2/:/go awesome:build ls && go build
 	hugo > /dev/null 2>&1
 clean:    ## Cleanup the content of the directoy dist/
 	rm -rf ./dist/ awesome-api awesome-api.log coverage-units.out coverage-integrations.out
@@ -17,17 +17,20 @@ stop: ## kills the process with PID number
 	pkill awesome-api
 lint: ## check for potential errors
 	markdownlint -f DEPLOY.md README.md || true
+	docker run --volume ${GITHUB_WORKSPACE}/module4_task2/.build/:/root hadolint/hadolint:latest ls && hadolint Dockerfile
 test: ## test hitting the endpoint
 	make unit-tests
 	make integration-tests
 	make validate
 unit-tests: build-docker ## run unit-tests
-	docker run --volume ${GITHUB_WORKSPACE}/module4_task1/:/go awesome:build ls && go test -v -short -coverprofile=coverage-units.out
+	docker run --volume ${GITHUB_WORKSPACE}/module4_task2/:/go awesome:build ls && go test -v -short -coverprofile=coverage-units.out
 integration-tests: build-docker ## run intregrated tests
-	docker run --volume ${GITHUB_WORKSPACE}/module4_task1/:/go awesome:build ls && go test -v  -coverprofile=coverage-integrations.out
+	docker run --volume ${GITHUB_WORKSPACE}/module4_task2/:/go awesome:build ls && go test -v -coverprofile=coverage-integrations.out
 package: build ## compile everything and zipit
 	zip -r awesome-website.zip dist/ awesome-api
 build-docker: ## build an image docker for each rule
 	docker build -t awesome:build .build
+docker-tests: ## read the file .build/cst.yml to do the test
+	docker build -t docker_cst:build .build/docker_cst && docker run docker_cst:build
 help: ## Display this help
 	@fgrep -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
