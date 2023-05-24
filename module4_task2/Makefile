@@ -31,6 +31,6 @@ package: build ## compile everything and zipit
 build-docker: ## build an image docker for each rule
 	docker build -t awesome:build .build
 docker-tests: ## read the file .build/cst.yml to do the test
-	docker build -t docker_cst:build .build/docker_cst && docker run docker_cst:build
+	docker build -t docker_cst:build .build/docker_cst && docker run docker_cst:build > log.txt
 help: ## Display this help
 	@fgrep -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
