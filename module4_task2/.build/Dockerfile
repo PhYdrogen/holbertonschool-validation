@@ -2,20 +2,19 @@ FROM golang:1.15.8-alpine
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 #shellcheck disable=SC1091
-#shellcheck source=/dev/null
+#shellcheck source=/root/install.sh
 
 COPY --chmod=751 install.sh /root/install.sh
 
 WORKDIR /root
 
-RUN install.sh | bash
+RUN install.sh | bash && . /root/.nvm/nvm.sh
 
 WORKDIR /
 
 RUN apt-get update && apt-get install -y --no-install-recommends hugo=0.54.0 wget=1.20.3 zip=3.0 npm=9.6.4\
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*\
-  && . /root/.nvm/nvm.sh\
   &&\
   nvm install --lts &&\
   npm install -g npm@9.6.7 &&\
