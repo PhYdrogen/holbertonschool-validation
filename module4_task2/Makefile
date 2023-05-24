@@ -17,7 +17,7 @@ stop: ## kills the process with PID number
 	pkill awesome-api
 lint: ## check for potential errors
 	markdownlint -f DEPLOY.md README.md || true
-	docker run --volume ${GITHUB_WORKSPACE}/module4_task2/.build/:/root -w /root hadolint/hadolint:latest hadolint Dockerfile
+	docker run --volume ${GITHUB_WORKSPACE}/module4_task2/.build/:/root -w /root hadolint/hadolint:latest ls && pwd && hadolint Dockerfile
 test: ## test hitting the endpoint
 	make unit-tests
 	make integration-tests
