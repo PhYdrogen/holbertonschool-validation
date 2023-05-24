@@ -1,6 +1,6 @@
 FROM hadolint/hadolint:latest
 
-COPY ../Dockerfile /root/Dockerfile
+COPY .hello /root/Dockerfile
 
 WORKDIR /root
 
