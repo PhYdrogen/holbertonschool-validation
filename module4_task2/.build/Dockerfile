@@ -1,10 +1,10 @@
-FROM golang:1.15.8-buster
+FROM golang:1.15.8-alpine
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 #shellcheck disable=SC1091
 #shellcheck source=/dev/null
 
-ADD --chmod=751 install.sh /root/install.sh
+COPY --chmod=751 install.sh /root/install.sh
 
 WORKDIR /root
 
