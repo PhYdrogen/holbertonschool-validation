@@ -17,7 +17,7 @@ stop: ## kills the process with PID number
 	pkill awesome-api
 lint: ## check for potential errors
 	markdownlint -f DEPLOY.md README.md || true
-	docker run --rm hadolint/hadolint:latest < .build/Dockerfile
+	docker run -i --rm hadolint/hadolint < .build/Dockerfile
 test: ## test hitting the endpoint
 	make unit-tests
 	make integration-tests
