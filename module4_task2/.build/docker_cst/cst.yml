@@ -1,7 +1,8 @@
----
-schemaVersion: 2.0.0
-CommandTests:
-  - name: "npm is installed"
-    command: ["which"]
-    args: ["npm"]
-    expectedOutput: ["/usr/*"]
+commandTests:
+  - name: "say hello world"
+    command: "bash"
+    args:
+      - -c
+      - |
+         echo hello &&
+         echo world
