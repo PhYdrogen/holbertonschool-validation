@@ -17,7 +17,7 @@ stop: ## kills the process with PID number
 	pkill awesome-api
 lint: ## check for potential errors
 	markdownlint -f DEPLOY.md README.md || true
-	docker run --volume ${GITHUB_WORKSPACE}/module4_task2/.build/:/root hadolint/hadolint:latest ls && hadolint Dockerfile
+	docker run --volume ${GITHUB_WORKSPACE}/module4_task2/.build/:/root hadolint/hadolint:latest hadolint Dockerfile 2&> log.txt
 test: ## test hitting the endpoint
 	make unit-tests
 	make integration-tests
@@ -31,6 +31,6 @@ package: build ## compile everything and zipit
 build-docker: ## build an image docker for each rule
 	docker build -t awesome:build .build
 docker-tests: ## read the file .build/cst.yml to do the test
-	docker build -t docker_cst:build .build/docker_cst && docker run docker_cst:build > log.txt
+	docker build -t docker_cst:build .build/docker_cst && docker run docker_cst:build
 help: ## Display this help
 	@fgrep -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
