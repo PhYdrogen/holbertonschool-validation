@@ -1,0 +1,7 @@
+---
+schemaVersion: 2.0.0
+metadataTest:
+  entrypoint: []
+  cmd: ["/bin/bash"]
+  workdir: "/go"
+  user: "root"
