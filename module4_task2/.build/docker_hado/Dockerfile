@@ -4,4 +4,4 @@ COPY hello /root/Dockerfile
 
 WORKDIR /root
 
-CMD ["hadolint Dockerfile"]
+RUN ["hadolint Dockerfile"]
