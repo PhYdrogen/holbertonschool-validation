@@ -1,3 +1,7 @@
 ---
 schemaVersion: 2.0.0
-CommandTests:- name: "npm is installed"  command: ["which"]  args: ["npm"]  expectedOutput: ["/usr/*"]
+CommandTests:
+  - name: "npm is installed"
+    command: ["which"]
+    args: ["npm"]
+    expectedOutput: ["/usr/*"]
